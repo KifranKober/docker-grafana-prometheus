@@ -5,6 +5,16 @@ volumes:
 
 services:
 
+ streamsexporter:
+    image: "docker_streamsexporter:latest"
+    env_file:
+      - ./streamsexporter/prod.env
+    ports:
+      - 25500:25500
+#   environment:
+#     - STREAMS_DOMAIN_ID
+
+
   prometheus:
     image: "dockerproxy-iva.si.francetelecom.fr/prom/prometheus:latest"
     volumes:
